@@ -9,7 +9,7 @@ def canUnlockAll(boxes):
     op_boxes = []
     i = 0
 
-    while i == length:
+    while i < length:
         prev_i = i
         op_boxes.append(i)
         keys.update(boxes[i])
