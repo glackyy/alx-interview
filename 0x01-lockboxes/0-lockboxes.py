@@ -22,7 +22,7 @@ def canUnlockAll(boxes):
             continue
         else:
             break
-    
+
     for i in range(length):
         if i not in op_boxes and i != 0:
             return False
