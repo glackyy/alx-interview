@@ -21,4 +21,11 @@ def minOperations(n):
         remain = n - past_chars
         if remain < pasteboard:
             return 0
+        if remain % past_chars != 0:
+            past_chars += pasteboard
+            c += 1
+        else:
+            pasteboard = past_chars
+            past_chars += pasteboard
+            c += 2
     
