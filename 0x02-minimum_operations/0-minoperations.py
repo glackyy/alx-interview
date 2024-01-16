@@ -33,4 +33,3 @@ def minOperations(n):
         return c
     else:
         return 0
-    
