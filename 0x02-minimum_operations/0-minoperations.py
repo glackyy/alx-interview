@@ -18,4 +18,7 @@ def minOperations(n):
             past_chars += pasteboard
             c += 1
             continue
+        remain = n - past_chars
+        if remain < pasteboard:
+            return 0
     
