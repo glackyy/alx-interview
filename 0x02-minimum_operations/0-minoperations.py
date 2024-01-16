@@ -29,3 +29,8 @@ def minOperations(n):
             past_chars += pasteboard
             c += 2
     
+    if past_chars == n:
+        return c
+    else:
+        return 0
+    
