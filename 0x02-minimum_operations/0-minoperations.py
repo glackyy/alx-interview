@@ -14,4 +14,8 @@ def minOperations(n):
         if pasteboard == 0:
             pasteboard = past_chars
             c += 1
+        if past_chars == 1:
+            past_chars += pasteboard
+            c += 1
+            continue
     
