@@ -9,7 +9,7 @@ def minOperations(n):
     past_chars = 1
     c = 0
     pasteboard = 0
-    
+
     while past_chars < n:
         if pasteboard == 0:
             pasteboard = past_chars
@@ -28,7 +28,7 @@ def minOperations(n):
             pasteboard = past_chars
             past_chars += pasteboard
             c += 2
-    
+
     if past_chars == n:
         return c
     else:
