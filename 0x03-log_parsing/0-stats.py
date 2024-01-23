@@ -23,3 +23,10 @@ try:
             for k, val in sorted(cache.items()):
                 if val != 0:
                     print('{}: {}'.format(k, val))
+except Exception as error:
+    pass
+finally:
+    print('File size: {}'.format(tl_size))
+    for k, val in sorted(cache.items()):
+        if val != 0:
+            print('{}: {}'.format(k, val))
