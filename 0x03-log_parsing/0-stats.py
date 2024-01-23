@@ -20,4 +20,6 @@ try:
         if c == 10:
             c = 0
             print('File size: {}'.format(tl_size))
-            
+            for k, val in sorted(cache.items()):
+                if val != 0:
+                    print('{}: {}'.format(k, val))
