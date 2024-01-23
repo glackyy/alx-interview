@@ -8,8 +8,8 @@ tl_size = 0
 c = 0
 
 try:
-    for l in sys.stdin:
-        l_list = l.split(" ")
+    for ln in sys.stdin:
+        l_list = ln.split(" ")
         if len(l_list) > 4:
             code = l_list[-2]
             size = int(l_list[-1])
