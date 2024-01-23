@@ -15,3 +15,9 @@ try:
             size = int(l_list[-1])
             if code in cache.keys():
                 cache[code] += 1
+            tl_size += size
+            c += 1
+        if c == 10:
+            c = 0
+            print('File size: {}'.format(tl_size))
+            
