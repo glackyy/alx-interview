@@ -19,3 +19,5 @@ def validUTF8(data):
         else:
             if i >> 6 != 0b10:
                 return False
+            by_count -= 1
+    return by_count == 0
