@@ -16,3 +16,6 @@ def validUTF8(data):
                 by_count = 3
             elif i >> 7 == 0b1:
                 return False
+        else:
+            if i >> 6 != 0b10:
+                return False
