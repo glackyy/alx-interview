@@ -10,3 +10,5 @@ def validUTF8(data):
         if by_count == 0:
             if i >> 5 == 0b110 or i >> 5 == 0b1110:
                 by_count = 1
+            elif i >> 4 == 0b1110:
+                by_count = 2
