@@ -14,3 +14,5 @@ def validUTF8(data):
                 by_count = 2
             elif i >> 3 == 0b11110:
                 by_count = 3
+            elif i >> 7 == 0b1:
+                return False
