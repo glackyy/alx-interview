@@ -32,4 +32,15 @@ if __name__ == "__main__":
                         col - (r-cor[0]) == ct):
                     s = False
                     break
-            
+            if not s:
+                if ct == n -1:
+                    gob = True
+                    break
+                ct += 1
+                continue
+
+            cords = [r, ct]
+            placed_q.append(cords)
+            if r == n - 1:
+                solutions.append(placed_q[:])
+                
