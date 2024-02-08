@@ -12,3 +12,12 @@ if __name__ == "__main__":
     except ValueError:
         print('N must be a number')
         exit(1)
+    if n < 4:
+        print('N must be at least 4')
+        exit(1)
+    
+    solutions = []
+    placed_q = []
+    st = False
+    r = 0
+    ct = 0
