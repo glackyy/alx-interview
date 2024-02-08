@@ -21,3 +21,15 @@ if __name__ == "__main__":
     st = False
     r = 0
     ct = 0
+
+    while r < n:
+        gob = False
+        while ct < n:
+            s = True
+            for cor in placed_q:
+                col = cor[1]
+                if (col == ct or col + (r-cor[0]) == ct or
+                        col - (r-cor[0]) == ct):
+                    s = False
+                    break
+            
