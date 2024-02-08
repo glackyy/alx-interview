@@ -43,4 +43,9 @@ if __name__ == "__main__":
             placed_q.append(cords)
             if r == n - 1:
                 solutions.append(placed_q[:])
-                
+                for cor in placed_q:
+                    if cor[1] < n - 1:
+                        r = cor[0]
+                        ct = cor[1]
+                for i in range(n - r):
+                    placed_q.pop()
