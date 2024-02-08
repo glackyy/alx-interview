@@ -15,7 +15,7 @@ if __name__ == "__main__":
     if n < 4:
         print('N must be at least 4')
         exit(1)
-    
+
     solutions = []
     placed_q = []
     st = False
@@ -33,7 +33,7 @@ if __name__ == "__main__":
                     s = False
                     break
             if not s:
-                if ct == n -1:
+                if ct == n - 1:
                     gob = True
                     break
                 ct += 1
