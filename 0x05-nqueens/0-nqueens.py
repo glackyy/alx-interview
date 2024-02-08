@@ -56,3 +56,18 @@ if __name__ == "__main__":
                 ct += 1
             else:
                 ct = 0
+            break
+        if st:
+            break
+        if gob:
+            r -= 1
+            while r >= 0:
+                ct = placed_q[r][1] + 1
+                del placed_q[r]
+                if ct < n:
+                    break
+                r -= 1
+            if r < 0:
+                break
+            continue
+        r += 1
