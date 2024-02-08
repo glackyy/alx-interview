@@ -49,3 +49,10 @@ if __name__ == "__main__":
                         ct = cor[1]
                 for i in range(n - r):
                     placed_q.pop()
+                if r == n - 1 and ct == n - 1:
+                    placed_q = []
+                    st = True
+                r -= 1
+                ct += 1
+            else:
+                ct = 0
