@@ -71,3 +71,9 @@ if __name__ == "__main__":
                 break
             continue
         r += 1
+
+    for index, v in enumerate(solutions):
+        if index == len(solutions) - 1:
+            print(v, end='')
+        else:
+            print(v)
