@@ -10,3 +10,5 @@ def rotate_2d_matrix(matrix):
             top, bott = left, right
             topLeft = matrix[top][left + i]
             matrix[top][left + i] = matrix[bott - i][left]
+            matrix[bott - i][left] = matrix[bott][right - i]
+            matrix[bott][right - i] = matrix[top + i][right]
