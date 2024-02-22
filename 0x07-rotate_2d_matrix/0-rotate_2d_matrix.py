@@ -8,3 +8,5 @@ def rotate_2d_matrix(matrix):
     while left < right:
         for i in range(right - left):
             top, bott = left, right
+            topLeft = matrix[top][left + i]
+            matrix[top][left + i] = matrix[bott - i][left]
