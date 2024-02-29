@@ -9,6 +9,7 @@ def makeChange(coins, total):
     to meet total"""
     if total <= 0:
         return 0
+
     INF = sys.maxsize
     table = [INF] * (total + 1)
     table[0] = 0
@@ -16,4 +17,5 @@ def makeChange(coins, total):
     for coin in coins:
         for am in range(coin, total + 1):
             table[am] = min(table[am], table[am - coin] + 1)
+
     return table[total] if table[total] != INF else -1
