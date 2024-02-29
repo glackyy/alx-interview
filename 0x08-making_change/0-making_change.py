@@ -16,8 +16,8 @@ def makeChange(coins, total):
         for j in range(m):
             if coins[j] <= i:
                 subres = table[i - coins[j]]
-                if subres != sys.maxsize and subres + 1 < tab[i]:
-                    tab[i] = subres + 1
+                if subres != sys.maxsize and subres + 1 < table[i]:
+                    table[i] = subres + 1
     if table[total] == sys.maxsize:
         return -1
     return table[total]
