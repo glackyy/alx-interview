@@ -10,15 +10,14 @@ def makeChange(coins, total):
     If total is 0 or less, return 0
     If total cannot be met by any number of coins you have, return -1
     """
+    t_val = 0
+    coins.sort(reverse=True)
+
     if total <= 0:
         return 0
 
-    INF = sys.maxsize
-    table = [INF] * (total + 1)
-    table[0] = 0
-
-    for coin in coins:
-        for am in range(coin, total + 1):
-            table[am] = min(table[am], table[am - coin] + 1)
-
-    return table[total] if table[total] != INF else -1
+    for c in coins:
+       if total % c <= total:
+           t_val += total // c
+           total = total % c
+    return t_val if total == 0 else -1
