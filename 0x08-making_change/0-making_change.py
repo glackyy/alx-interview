@@ -13,4 +13,9 @@ def makeChange(coins, total):
     tab[0] = 0
     ma = len(coins)
     for i in range(1, total + 1):
-        
+        for j in range(ma):
+            if coins[j] <= i:
+                sures = tab[i - coins[j]]
+                if sures != sys.maxsize and sures + 1 < tab[i]:
+                    tab[i] = sures + 1
+                
