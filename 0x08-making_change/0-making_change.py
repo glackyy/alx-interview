@@ -9,15 +9,15 @@ def makeChange(coins, total):
     to meet total"""
     if total <= 0:
         return 0
-    tab = [sys.maxsize for i in range(total + 1)]
-    tab[0] = 0
-    ma = len(coins)
+    table = [sys.maxsize for i in range(total + 1)]
+    table[0] = 0
+    m = len(coins)
     for i in range(1, total + 1):
-        for j in range(ma):
+        for j in range(m):
             if coins[j] <= i:
-                sures = tab[i - coins[j]]
-                if sures != sys.maxsize and sures + 1 < tab[i]:
-                    tab[i] = sures + 1
-    if tab[total] == sys.maxsize:
+                subres = table[i - coins[j]]
+                if subres != sys.maxsize and subres + 1 < tab[i]:
+                    tab[i] = subres + 1
+    if table[total] == sys.maxsize:
         return -1
-    return tab[total]
+    return table[total]
