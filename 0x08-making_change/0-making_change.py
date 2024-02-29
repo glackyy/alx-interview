@@ -18,4 +18,6 @@ def makeChange(coins, total):
                 sures = tab[i - coins[j]]
                 if sures != sys.maxsize and sures + 1 < tab[i]:
                     tab[i] = sures + 1
-                
+    if tab[total] == sys.maxsize:
+        return -1
+    return tab[total]
