@@ -42,4 +42,4 @@ def island_perimeter(grid):
                         ct += 1
                     if grid[lt_index + 1][ld_index] == 0:
                         ct += 1
-    return ct        
+    return ct
