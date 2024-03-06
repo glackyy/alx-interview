@@ -19,8 +19,8 @@ def island_perimeter(grid):
                 elif ld_index == lt_max:
                     if lt[ld_index - 1] == 0:
                         ct += 1
-
                     ct += 1
+
                 else:
                     if lt[ld_index - 1] == 0:
                         ct += 1
@@ -35,3 +35,4 @@ def island_perimeter(grid):
                 elif lt_index == gd_max:
                     if grid[lt_index - 1][ld_index] == 0:
                         ct += 1
+                    ct += 1
