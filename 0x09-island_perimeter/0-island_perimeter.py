@@ -8,4 +8,9 @@ def island_perimeter(grid):
     ct = 0
     gd_max = len(grid) - 1
     lt_max = len(grid[0]) - 1
-    
+
+    for lt_index, lt in enumerate(grid):
+        for ld_index, ld in enumerate(lt):
+            if ld == 1:
+                if ld_index == 0:
+                    ct += 1
