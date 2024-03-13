@@ -4,45 +4,45 @@
 
 def isWinner(x, nums):
     """Finding Winner"""
-    WCounter = {'Maria': 0, 'Ben': 0}
+    wCounter = {'Maria': 0, 'Ben': 0}
 
     for i in range(x):
-        rdWinner = isRoundWinner(nums[i], x)
-        if rdWinner is not None:
-            WCounter[rdWinner] += 1
+        rndWinner = isRoundWinner(nums[i], x)
+        if rndWinner is not None:
+            wCounter[rndWinner] += 1
 
-    if WCounter['Maria'] > WCounter['Ben']:
+    if wCounter['Maria'] > wCounter['Ben']:
         return 'Maria'
-    elif WCounter['Ben'] > WCounter['Maria']:
+    elif wCounter['Ben'] > wCounter['Maria']:
         return 'Ben'
     else:
         return None
 
 
 def isRoundWinner(n, x):
-    """Finding round Winner"""
+    """Finding round winner"""
     list = [i for i in range(1, n + 1)]
-    pl = ['Maria', 'Ben']
+    plys = ['Maria', 'Ben']
 
     for i in range(n):
-        currPlayer = pl[i % 2]
-        selIndexs = []
+        currentPlayer = plys[i % 2]
+        selIdxs = []
         prime = -1
         for idx, num in enumerate(list):
             if prime != -1:
                 if num % prime == 0:
-                    selIndexs.append(idx)
+                    selIdxs.append(idx)
             else:
                 if isPrime(num):
-                    selIndexs.append(idx)
+                    selIdxs.append(idx)
                     prime = num
         if prime == -1:
-            if currPlayer == pl[0]:
-                return pl[1]
+            if currentPlayer == plys[0]:
+                return plys[1]
             else:
-                return pl[0]
+                return plys[0]
         else:
-            for idx, val in enumerate(selIndexs):
+            for idx, val in enumerate(selIdxs):
                 del list[val - idx]
     return None
 
