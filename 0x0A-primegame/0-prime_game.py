@@ -49,4 +49,12 @@ def isWinner(x, nums):
 
         if tempo % 2 == 0:
             plys['Ben'] += 1
-       
+        elif tempo % 2 != 0:
+            plys['Maria'] += 1
+
+    if plys['Maria'] > plys['Ben']:
+       return 'Maria'
+   elif plys['Maria'] < plys['Ben']:
+       return 'Ben'
+   else:
+       return None
