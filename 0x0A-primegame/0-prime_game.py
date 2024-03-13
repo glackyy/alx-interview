@@ -2,57 +2,32 @@
 """Prime Game"""
 
 
-def isPrime(i):
-    """Checking if a number is prime"""
-    if i == 1:
-        return False
-    for j in range(2, int(i**0.5) + 1):
-        if i % j == 0:
-            return False
-    return True
-
-
-def findMulti(num, targets):
-    """Finding multiples of a num within list"""
-    multiples = [i for i in targets if i % num == 0]
-    return [i for i in targets if i not in multiples]
-
-
-def findPrimes(n):
-    """Sending a set into prime nums and non-prime nums"""
-    ct = 0
-    target = list(n)
-    for i in range(1, len(target) + 1):
-        if isPrime(i):
-            ct += 1
-            target.remove(i)
-            target = findMulti(i, target)
-        else:
-            pass
-    return ct
-
-
 def isWinner(x, nums):
     """Finding the winner"""
-    plys = {'Maria': 0, 'Ben': 0}
-    clst = set()
-    for e in range(x):
-        nums.sort()
-        num = nums[e]
-        for i in range(1, num + 1):
-            clst.add(i)
-            if i == num + 1:
-                break
-        tempo = findPrimes(clst)
-
-        if tempo % 2 == 0:
-            plys['Ben'] += 1
-        elif tempo % 2 != 0:
-            plys['Maria'] += 1
-
-    if plys['Maria'] > plys['Ben']:
-        return 'Maria'
-    elif plys['Maria'] < plys['Ben']:
-        return 'Ben'
-    else:
+    if not nums or x < 1:
         return None
+
+    max_num = max(nums)
+
+    # Sieve of Eratosthenes
+    sieve = [True] * (max(max_num + 1, 2))
+    for i in range(2, int(pow(max_num, 0.5)) + 1):
+        if sieve[i]:
+            multiples = range(i * i, max_num + 1, i)
+            for multiple in multiples:
+                sieve[multiple] = False
+
+    primes_count = [0]
+    for i in range(1, len(sieve)):
+        if sieve[i]:
+            primes_count.append(primes_count[-1] + 1)
+        else:
+            primes_count.append(primes_count[-1])
+
+    maria_wins = sum(primes_count[num] % 2 == 1 for num in nums)
+
+    return (
+        'Maria' if maria_wins * 2 > x else
+        'Ben' if maria_wins * 2 < x else
+        None
+    )
