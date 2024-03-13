@@ -34,6 +34,19 @@ def findPrimes(n):
     return ct
 
 
-
 def isWinner(x, nums):
-   
+   """Finding the winner"""
+   plys = {'Maria': 0, 'Ben': 0}
+   clst = set()
+   for e in range(x):
+        nums.sort()
+        num = nums[e]
+        for i in range(1, num + 1):
+            clst.add(i)
+            if i == num + 1:
+                break
+        tempo = findPrimes(clst)
+
+        if tempo % 2 == 0:
+            plys['Ben'] += 1
+       
