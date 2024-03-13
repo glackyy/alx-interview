@@ -1,60 +1,46 @@
 #!/usr/bin/python3
-"""Prime Game"""
-
-
-def isPrime(i):
-    """Checking if a number is prime"""
-    if i == 1:
-        return False
-    for j in range(2, i):
-        if i % j == 0:
-            return False
-    return True
-
-
-def findMulti(num, targets):
-    """Finding multiples of a num within list"""
-    for i in targets:
-        if i % num == 0:
-            targets.remove(i)
-    return targets
-
-
-def findPrimes(n):
-    """sending a set into prime nums and non-prime nums"""
-    ct = 0
-    target = list(n)
-    for i in range(1, len(target) + 1):
-        if isPrime(i):
-            ct += 1
-            target.remove(i)
-            target = findMulti(i, target)
-        else:
-            pass
-    return ct
+"""Prime game"""
 
 
 def isWinner(x, nums):
     """Finding the winner"""
-    plys = {'Maria': 0, 'Ben': 0}
-    clst = set()
-    for e in range(x):
-        nums.sort()
-        num = nums[e]
-        for i in range(1, num + 1):
-            clst.add(i)
-            if i == num + 1:
+    def is_prime(n):
+        """checking if num is prime"""
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def playRound(n):
+        """Simulating a single round of the game"""
+        maria_turn = True
+
+        while n > 1:
+            found_prime = False
+            for i in range(2, n + 1):
+                if is_prime(i) and n % i == 0:
+                    n -= i
+                    found_prime = True
+                    break
+
+            if not found_prime:
                 break
-        tempo = findPrimes(clst)
 
-        if tempo % 2 == 0:
-            plys['Ben'] += 1
-        elif tempo % 2 != 0:
-            plys['Maria'] += 1
+            maria_turn = not maria_turn
 
-    if plys['Maria'] > plys['Ben']:
-        return 'Maria'
-    elif plys['Maria'] < plys['Ben']:
+        return 'Maria' if maria_turn else 'Ben'
+
+    winners = {'Maria': 0, 'Ben': 0}
+
+    for round_num in nums:
+        winner = playRound(round_num)
+        winners[winner] += 1
+
+    if winners['Maria'] < winners['Ben']:
         return 'Ben'
+    elif winners['Maria'] > winners['Ben']:
+        return 'Maria'
     else:
         return None
