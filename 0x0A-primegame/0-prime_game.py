@@ -17,3 +17,12 @@ def isWinner(x, nums):
         return 'Ben'
     else:
         return None
+
+
+def isRoundWinner(n, x):
+    """Finding round Winner"""
+    list = [i for i in range(1, n + 1)]
+    pl = ['Maria', 'Ben']
+
+    for i in range(n):
+        
