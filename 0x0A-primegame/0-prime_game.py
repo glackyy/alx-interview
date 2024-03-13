@@ -9,7 +9,7 @@ def isPrime(i):
     for j in range(2, i):
         if i % j == 0:
             return False
-    return True 
+    return True
 
 
 def findMulti(num, targets):
@@ -35,10 +35,10 @@ def findPrimes(n):
 
 
 def isWinner(x, nums):
-   """Finding the winner"""
-   plys = {'Maria': 0, 'Ben': 0}
-   clst = set()
-   for e in range(x):
+    """Finding the winner"""
+    plys = {'Maria': 0, 'Ben': 0}
+    clst = set()
+    for e in range(x):
         nums.sort()
         num = nums[e]
         for i in range(1, num + 1):
@@ -53,8 +53,8 @@ def isWinner(x, nums):
             plys['Maria'] += 1
 
     if plys['Maria'] > plys['Ben']:
-       return 'Maria'
-   elif plys['Maria'] < plys['Ben']:
-       return 'Ben'
-   else:
-       return None
+        return 'Maria'
+    elif plys['Maria'] < plys['Ben']:
+        return 'Ben'
+    else:
+        return None
