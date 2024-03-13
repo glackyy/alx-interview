@@ -25,4 +25,6 @@ def isRoundWinner(n, x):
     pl = ['Maria', 'Ben']
 
     for i in range(n):
-        
+        currPlayer = pl[i % 2]
+        selIndexs = []
+        prime = -1
