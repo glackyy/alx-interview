@@ -23,7 +23,16 @@ def findMulti(num, targets):
 def findPrimes(n):
     """sending a set into prime nums and non-prime nums"""
     ct = 0
-    
+    target = list(n)
+    for i in range(1, len(target) + 1):
+        if isPrime(i):
+            ct += 1
+            target.remove(i)
+            target = findMulti(i, target)
+        else:
+            pass
+    return ct
+
 
 
 def isWinner(x, nums):
