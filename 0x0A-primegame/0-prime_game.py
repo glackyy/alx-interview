@@ -28,3 +28,14 @@ def isRoundWinner(n, x):
         currPlayer = pl[i % 2]
         selIndexs = []
         prime = -1
+        for idx, num in enumerate(list):
+            if prime != -1:
+                if num % prime == 0:
+                    selIndexs.append(idx)
+            else:
+                if isPrime(num):
+                    selIndexs.append(idx)
+                    prime = num
+    if prime == -1:
+        if currPlayer == pl[0]:
+            return pl[1]
