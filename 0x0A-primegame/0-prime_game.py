@@ -6,7 +6,7 @@ def isPrime(i):
     """Checking if a number is prime"""
     if i == 1:
         return False
-    for j in range(2, i):
+    for j in range(2, int(i**0.5) + 1):
         if i % j == 0:
             return False
     return True
@@ -14,14 +14,12 @@ def isPrime(i):
 
 def findMulti(num, targets):
     """Finding multiples of a num within list"""
-    for i in targets:
-        if i % num == 0:
-            targets.remove(i)
-    return targets
+    multiples = [i for i in targets if i % num == 0]
+    return [i for i in targets if i not in multiples]
 
 
 def findPrimes(n):
-    """sending a set into prime nums and non-prime nums"""
+    """Sending a set into prime nums and non-prime nums"""
     ct = 0
     target = list(n)
     for i in range(1, len(target) + 1):
