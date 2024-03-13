@@ -45,3 +45,13 @@ def isRoundWinner(n, x):
             for idx, val in enumerate(selIndexs):
                 del list[val - idx]
     return None
+
+
+def isPrime(n):
+    if n == 1 or n == 0 or (n % 2 == 0 and n > 2):
+        return False
+    else:
+        for i in range(3, int(n**(1/2))+1, 2):
+            if n % i == 0:
+                return "Not prime"
+        return True
