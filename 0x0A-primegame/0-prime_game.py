@@ -36,6 +36,12 @@ def isRoundWinner(n, x):
                 if isPrime(num):
                     selIndexs.append(idx)
                     prime = num
-    if prime == -1:
-        if currPlayer == pl[0]:
-            return pl[1]
+        if prime == -1:
+            if currPlayer == pl[0]:
+                return pl[1]
+            else:
+                return pl[0]
+        else:
+            for idx, val in enumerate(selIndexs):
+                del list[val - idx]
+    return None
